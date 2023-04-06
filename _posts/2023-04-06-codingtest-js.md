@@ -1,3 +1,4 @@
+<hr>
 ## 코딩 테스트 문제의 입출력 형식
 
 - 알고리즘 문제에서는 적절한 입출력 양식이 주어진다.
@@ -9,6 +10,7 @@ ex) N명의 학생의 성적 데이터가 주어졌을 때, 이를 내림차순 
 
 `console.log()` 를 이용한 문제 풀기
 
+<hr>
 ## fs모듈
 
 - 입력 데이터가 텍스트 파일 형태로 주어지는 경우, **파일 시스템 모듈**을 사용한다.
@@ -23,7 +25,8 @@ let input = fs.readFileSync("/dev/stdom").toString().split("\n");
 console.log(input);
 ```
 
-##readline 모듈
+<hr>
+## readline 모듈
 
 - 한 줄씩 입력을 받아서, 처리하여 정답을 출력할 때는 **readline 모듈**을 사용할 수 있다.
 
@@ -43,9 +46,10 @@ rl.on("line", (line) => {
 });
 ```
 
+<hr>
 ## 문법
 
-### 1. Number와 String 형태 변환
+### Number와 String 형태 변환
 
 ```js
 let a = "777";
@@ -56,7 +60,7 @@ a = String(a);
 //string으로 변환됨.
 ```
 
-### 2. Array.prototype.reduce()
+### Array.prototype.reduce()
 
 - 배열의 모든 원소에 대해 특정한 연산을 순차적으로 적용할 때 reduce()를 사용한다.
 
