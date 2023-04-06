@@ -72,8 +72,54 @@ let data = [5, 2, 9, 8, 4];
 
 let minValue = data.reduce((a, b) => Math.min(a, b));
 
-console.log(minValue);
+console.log(minValue); //2
 
 let summary = data.reduce((a, b) => a + b);
-console.log(summary);
+console.log(summary); //28
 ```
+
+### 배열 초기화 방법
+
+1. 직접 값을 설정하여 초기화
+   `let arr = [1,2,3,4,5];`
+2. 길이가 5이고 모든 원ㄴ소의 값이 0인 배열 초기화
+   `let arr = new Array(5).fill(0);`
+
+### 집합 자료형
+
+- 특정한 **원소의 등장 여부**를 파악할 때 집합 자료형을 효과적으로 사용할 수 있다.
+
+```js
+let mySet = new Set();
+
+mySet.add(3);
+mySet.add(5);
+mySet.add(7);
+mySet.add(3);
+
+console.log(`원소의 개수: ${mySet.size}`);
+console.log(`7을 포함하고 있는가? ${mySet.has(7)}`);
+
+mySet.delete(5);
+
+for (let item of mySet) {
+  console.log(item);
+}
+```
+
+### 소수점 아래 특정 자리에서 반올림
+
+`let x = 123.4567`
+2번째 짜리 까지만 출력하려면?
+`console.log(x.toFixed(2))`
+
+### 이스케이프 시퀀스
+
+- **예약 문자** 혹은 **특수 문자**를 출력하기 위해 **이스케이프 시퀀스**를 사용할 수 있다.
+
+| 시퀀스 | 문자        |
+| ------ | ----------- |
+| \t     | 탭          |
+| \\\\   | 역 슬래시   |
+| \\"    | 큰 따옴표   |
+| \\'    | 작은 따옴표 |
