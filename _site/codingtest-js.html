@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="html" data-theme="light"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    
+      js로 코테 준비
+    
+  </title>
+
+  <!-- Begin Jekyll SEO tag v2.7.3 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="js로 코테 준비" />
+<meta name="author" content="Abhinav Saxena" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="코딩 테스트 문제의 입출력 형식" />
+<meta property="og:description" content="코딩 테스트 문제의 입출력 형식" />
+<link rel="canonical" href="http://localhost:4000/codingtest-js" />
+<meta property="og:url" content="http://localhost:4000/codingtest-js" />
+<meta property="og:site_name" content="Moonwalk" />
+<meta property="og:image" content="https://soopr.xyz/images/card?url=http://localhost:4000/codingtest-js" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-06T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:image" content="https://soopr.xyz/images/card?url=http://localhost:4000/codingtest-js" />
+<meta property="twitter:title" content="js로 코테 준비" />
+<meta name="twitter:site" content="@abhinav" />
+<meta name="twitter:creator" content="@Abhinav Saxena" />
+<script type="application/ld+json">
+{"datePublished":"2023-04-06T00:00:00+09:00","headline":"js로 코테 준비","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/codingtest-js"},"url":"http://localhost:4000/codingtest-js","description":"코딩 테스트 문제의 입출력 형식","author":{"@type":"Person","name":"Abhinav Saxena"},"@type":"BlogPosting","dateModified":"2023-04-06T00:00:00+09:00","@context":"https://schema.org"}</script>
+<script async defer data-soopr-token="" src="https://sdk.soopr.co/soopr.js"  ></script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Moonwalk" />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Favicon -->
+
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+    <script type="text/javascript">
+  window.addEventListener('load', themeChange);
+  const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+  if (currentTheme)
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+  function themeChange() {
+    let button = document.querySelector('.theme-toggle');
+
+    button.addEventListener('click', function (e) {
+      let currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        transition();
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        transition();
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    let transition = () => {
+      document.documentElement.classList.add('transition');
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('transition');
+      }, 1000);
+    }
+  }
+</script>
+
+
+  
+</head>
+<body>
+    <main class="page-content" aria-label="Content">
+      <div class="w">
+        <a href="/">home..</a>
+<h1 class="post-title">js로 코테 준비</h1>
+<p class="post-date text-bold">
+  
+  
+    <span class="text-upcase">April 2023</span>
+  
+
+
+  
+  
+  (514 Words, 
+  3 Minutes)
+  
+
+</p>
+
+<div class="soopr-btn"
+   data-twitter="SooprCo"
+>
+</div>
+
+
+  <div class="">
+    
+  </div>
+
+
+<h2 id="코딩-테스트-문제의-입출력-형식">코딩 테스트 문제의 입출력 형식</h2>
+
+<ul>
+  <li>알고리즘 문제에서는 적절한 입출력 양식이 주어진다.</li>
+</ul>
+
+<ol>
+  <li>첫 번째 단계는 <strong>데이터를 입력 받거나 생성</strong>하는 것이다.</li>
+  <li>이후에 적절한 알고리즘을 사용하여 <strong>도출된 정답을 정확한 형식으로 출력</strong>한다.</li>
+</ol>
+
+<p>ex) N명의 학생의 성적 데이터가 주어졌을 때, 이를 내림차순 정렬한 결과를 출력하여라.(+ 입력형식과 출력형식을 주어줌.)</p>
+
+<p><code class="language-plaintext highlighter-rouge">console.log()</code> 를 이용한 문제 풀기</p>
+
+<hr />
+
+<h2 id="fs모듈">fs모듈</h2>
+
+<ul>
+  <li>입력 데이터가 텍스트 파일 형태로 주어지는 경우, <strong>파일 시스템 모듈</strong>을 사용한다.</li>
+  <li>예를 들어 /dev/stdin 파일에 적힌 텍스트를 읽어오는 경우, 다음과 같이 코드를 작성한다.</li>
+  <li>기능: 전체 텍스트를 읽어온 뒤에, 줄바꿈 기호를 기준으로 구분하여 리스트 변환하기.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//readline 모듈보다는 fs를 이용해 파일 전체를 읽어 들여 처리하기.</span>
+<span class="kd">let</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">/dev/stdom</span><span class="dl">"</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">//let input = fs.readFileSync('input.txt').toString().split('\n');</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="readline-모듈">readline 모듈</h2>
+
+<ul>
+  <li>한 줄씩 입력을 받아서, 처리하여 정답을 출력할 때는 <strong>readline 모듈</strong>을 사용할 수 있다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">rl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline</span><span class="dl">"</span><span class="p">).</span><span class="nx">createInterface</span><span class="p">({</span>
+  <span class="na">input</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">,</span>
+  <span class="na">output</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="nx">rl</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">line</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">line</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">input</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">line</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="문법">문법</h2>
+
+<h3 id="number와-string-형태-변환">Number와 String 형태 변환</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">777</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">//number로 변환됨.</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">//string으로 변환됨.</span>
+</code></pre></div></div>
+
+<h3 id="arrayprototypereduce">Array.prototype.reduce()</h3>
+
+<ul>
+  <li>배열의 모든 원소에 대해 특정한 연산을 순차적으로 적용할 때 reduce()를 사용한다.</li>
+</ul>
+
+<p>reduce() 메서드는 배열의 각 요소에 대해 reducer함수를 실행한 뒤에 하나의 결과를 반환한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">(accumulator, currentValue) =&gt; (반환값)</code></p>
+
+<ul>
+  <li>배열의 각 원소를 하나씩 확인하여, 각 원소는 currentValue에 해당된다.</li>
+  <li>반환값은 그 이후의 원소에 대하여 accumlator에 저장된다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">minValue</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">));</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minValue</span><span class="p">);</span> <span class="c1">//2</span>
+
+<span class="kd">let</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">summary</span><span class="p">);</span> <span class="c1">//28</span>
+</code></pre></div></div>
+
+<h3 id="배열-초기화-방법">배열 초기화 방법</h3>
+
+<ol>
+  <li>직접 값을 설정하여 초기화
+<code class="language-plaintext highlighter-rouge">let arr = [1,2,3,4,5];</code></li>
+  <li>길이가 5이고 모든 원ㄴ소의 값이 0인 배열 초기화
+<code class="language-plaintext highlighter-rouge">let arr = new Array(5).fill(0);</code></li>
+</ol>
+
+<h3 id="집합-자료형">집합 자료형</h3>
+
+<ul>
+  <li>특정한 <strong>원소의 등장 여부</strong>를 파악할 때 집합 자료형을 효과적으로 사용할 수 있다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">mySet</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">();</span>
+
+<span class="nx">mySet</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="nx">mySet</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="nx">mySet</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+<span class="nx">mySet</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`원소의 개수: </span><span class="p">${</span><span class="nx">mySet</span><span class="p">.</span><span class="nx">size</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`7을 포함하고 있는가? </span><span class="p">${</span><span class="nx">mySet</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="mi">7</span><span class="p">)}</span><span class="s2">`</span><span class="p">);</span>
+
+<span class="nx">mySet</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">item</span> <span class="k">of</span> <span class="nx">mySet</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="소수점-아래-특정-자리에서-반올림">소수점 아래 특정 자리에서 반올림</h3>
+
+<p><code class="language-plaintext highlighter-rouge">let x = 123.4567</code>
+2번째 짜리 까지만 출력하려면?
+<code class="language-plaintext highlighter-rouge">console.log(x.toFixed(2))</code></p>
+
+<h3 id="이스케이프-시퀀스">이스케이프 시퀀스</h3>
+
+<ul>
+  <li><strong>예약 문자</strong> 혹은 <strong>특수 문자</strong>를 출력하기 위해 <strong>이스케이프 시퀀스</strong>를 사용할 수 있다.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>시퀀스</th>
+      <th>문자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\t</td>
+      <td>탭</td>
+    </tr>
+    <tr>
+      <td>\\</td>
+      <td>역 슬래시</td>
+    </tr>
+    <tr>
+      <td>\”</td>
+      <td>큰 따옴표</td>
+    </tr>
+    <tr>
+      <td>\’</td>
+      <td>작은 따옴표</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        
+          <button title="Toggle Theme" class="theme-toggle">
+  <svg viewBox="0 0 32 32" width="24" height="24" fill="currentcolor">
+    <circle cx="16" cy="16" r="14" fill="none" stroke="currentcolor" stroke-width="4"></circle>
+    <path d="
+             M 16 0
+             A 16 16 0 0 0 16 32
+             z">
+    </path>
+  </svg>
+</button>
+
+        
+        <div class="credits">&copy;&nbsp;2023&nbsp;Abhinav Saxena
+          &nbsp;
+          •
+          &nbsp;Powered by <a href="https://www.soopr.co" target="_blank" rel="noreferrer">Soopr</a>
+          &nbsp;
+          •
+          &nbsp;Theme&nbsp; <a href="https://github.com/abhinavs/moonwalk" target="_blank" rel="noreferrer">Moonwalk</a>
+        </div>
+      </div>
+    </main><script async defer src="https://sdk.soopr.co/soopr.js"></script></body>
+</html>

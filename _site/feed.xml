@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-07T22:46:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Moonwalk</title><subtitle>Moonwalk is a fast and elegant Jekyll theme with a clean dark mode. It comes with horizontal list (for navbar and footer), card list (for portfolio), and a generic vertical list. It is very easy to modify in case you want to build over it - please see _layouts/home.html to do that.
+</subtitle><author><name>Abhinav Saxena</name></author><entry><title type="html">js로 코테 준비</title><link href="http://localhost:4000/codingtest-js" rel="alternate" type="text/html" title="js로 코테 준비" /><published>2023-04-06T00:00:00+09:00</published><updated>2023-04-06T00:00:00+09:00</updated><id>http://localhost:4000/codingtest-js</id><content type="html" xml:base="http://localhost:4000/codingtest-js">&lt;h2 id=&quot;코딩-테스트-문제의-입출력-형식&quot;&gt;코딩 테스트 문제의 입출력 형식&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;알고리즘 문제에서는 적절한 입출력 양식이 주어진다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;첫 번째 단계는 &lt;strong&gt;데이터를 입력 받거나 생성&lt;/strong&gt;하는 것이다.&lt;/li&gt;
+  &lt;li&gt;이후에 적절한 알고리즘을 사용하여 &lt;strong&gt;도출된 정답을 정확한 형식으로 출력&lt;/strong&gt;한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;ex) N명의 학생의 성적 데이터가 주어졌을 때, 이를 내림차순 정렬한 결과를 출력하여라.(+ 입력형식과 출력형식을 주어줌.)&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;console.log()&lt;/code&gt; 를 이용한 문제 풀기&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;fs모듈&quot;&gt;fs모듈&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력 데이터가 텍스트 파일 형태로 주어지는 경우, &lt;strong&gt;파일 시스템 모듈&lt;/strong&gt;을 사용한다.&lt;/li&gt;
+  &lt;li&gt;예를 들어 /dev/stdin 파일에 적힌 텍스트를 읽어오는 경우, 다음과 같이 코드를 작성한다.&lt;/li&gt;
+  &lt;li&gt;기능: 전체 텍스트를 읽어온 뒤에, 줄바꿈 기호를 기준으로 구분하여 리스트 변환하기.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//readline 모듈보다는 fs를 이용해 파일 전체를 읽어 들여 처리하기.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFileSync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/dev/stdom&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//let input = fs.readFileSync('input.txt').toString().split('\n');&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;readline-모듈&quot;&gt;readline 모듈&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;한 줄씩 입력을 받아서, 처리하여 정답을 출력할 때는 &lt;strong&gt;readline 모듈&lt;/strong&gt;을 사용할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createInterface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stdin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;rl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;문법&quot;&gt;문법&lt;/h2&gt;
+
+&lt;h3 id=&quot;number와-string-형태-변환&quot;&gt;Number와 String 형태 변환&lt;/h3&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;777&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//number로 변환됨.&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//string으로 변환됨.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;arrayprototypereduce&quot;&gt;Array.prototype.reduce()&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;배열의 모든 원소에 대해 특정한 연산을 순차적으로 적용할 때 reduce()를 사용한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;reduce() 메서드는 배열의 각 요소에 대해 reducer함수를 실행한 뒤에 하나의 결과를 반환한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(accumulator, currentValue) =&amp;gt; (반환값)&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;배열의 각 원소를 하나씩 확인하여, 각 원소는 currentValue에 해당된다.&lt;/li&gt;
+  &lt;li&gt;반환값은 그 이후의 원소에 대하여 accumlator에 저장된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//2&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;summary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//28&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;배열-초기화-방법&quot;&gt;배열 초기화 방법&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;직접 값을 설정하여 초기화
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let arr = [1,2,3,4,5];&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;길이가 5이고 모든 원ㄴ소의 값이 0인 배열 초기화
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let arr = new Array(5).fill(0);&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;집합-자료형&quot;&gt;집합 자료형&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특정한 &lt;strong&gt;원소의 등장 여부&lt;/strong&gt;를 파악할 때 집합 자료형을 효과적으로 사용할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`원소의 개수: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`7을 포함하고 있는가? &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;has&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mySet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;소수점-아래-특정-자리에서-반올림&quot;&gt;소수점 아래 특정 자리에서 반올림&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let x = 123.4567&lt;/code&gt;
+2번째 짜리 까지만 출력하려면?
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;console.log(x.toFixed(2))&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;이스케이프-시퀀스&quot;&gt;이스케이프 시퀀스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;예약 문자&lt;/strong&gt; 혹은 &lt;strong&gt;특수 문자&lt;/strong&gt;를 출력하기 위해 &lt;strong&gt;이스케이프 시퀀스&lt;/strong&gt;를 사용할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;시퀀스&lt;/th&gt;
+      &lt;th&gt;문자&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\t&lt;/td&gt;
+      &lt;td&gt;탭&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\\&lt;/td&gt;
+      &lt;td&gt;역 슬래시&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\”&lt;/td&gt;
+      &lt;td&gt;큰 따옴표&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\’&lt;/td&gt;
+      &lt;td&gt;작은 따옴표&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>Abhinav Saxena</name></author><summary type="html">코딩 테스트 문제의 입출력 형식</summary></entry><entry><title type="html">회고</title><link href="http://localhost:4000/3%EB%85%84-%EA%B0%9C%EB%B0%9C-%EA%B3%B5%EB%B6%80%EC%97%90-%EB%8C%80%ED%95%9C-%ED%9A%8C%EA%B3%A0" rel="alternate" type="text/html" title="회고" /><published>2023-03-21T00:00:00+09:00</published><updated>2023-03-21T00:00:00+09:00</updated><id>http://localhost:4000/3%EB%85%84%20%EA%B0%9C%EB%B0%9C%20%EA%B3%B5%EB%B6%80%EC%97%90%20%EB%8C%80%ED%95%9C%20%ED%9A%8C%EA%B3%A0</id><content type="html" xml:base="http://localhost:4000/3%EB%85%84-%EA%B0%9C%EB%B0%9C-%EA%B3%B5%EB%B6%80%EC%97%90-%EB%8C%80%ED%95%9C-%ED%9A%8C%EA%B3%A0">&lt;h1 id=&quot;2020-2021-in-육군&quot;&gt;2020, 2021 in 육군&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;
+20년 9월 군대에서 처음으로 웹 개발이라는 거에 손을 댓다.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;html, css를 하는데 너무 재미있고 흥미로워서 여러 가지를 만들어 보고, 깃허브에 올렸다.&lt;/p&gt;
+
+&lt;p&gt;지금 보면 정말 귀여운 작품들 뿐이였지만, 성장하는 나의 첫 걸음 이였기 때문에 자랑스럽다.&lt;/p&gt;
+
+&lt;p&gt;그때의 많은 레퍼지토리들은 부끄러움에 그만 삭제하고 말았다.(후회됨)&lt;/p&gt;
+
+&lt;p&gt;군대에서 매일 연등을 신청하며 사지방에서 html, css, js를 익혔다.&lt;/p&gt;
+
+&lt;p&gt;tolist라는 작품을 만들었을때는 정말 뿌듯했다.&lt;/p&gt;
+
+&lt;p&gt;더 나아가 서버를 건드리고 싶었지만, 사지방 컴퓨터에서 콘솔이 열리지가 않아 더 이상 깊게 들어가기가 힘들었다.&lt;/p&gt;
+
+&lt;p&gt;node.js를 너무나도 배워보고 싶었지만, 환경에 한계를 느꼈고, 전역하면 꼭 서버쪽을 만져보기로 다짐했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;js에-집중하기-그리고-막힘&quot;&gt;js에 집중하기, 그리고 막힘.&lt;/h2&gt;
+
+&lt;p&gt;core javascript라는 책 구입하게 된다.&lt;/p&gt;
+
+&lt;p&gt;코딩에 대한 기본이 없었기 때문에 1장 깊은복사, 앏은복사, js가 데이터를 저장하는 과정에서 한계를 느꼈다.&lt;/p&gt;
+
+&lt;p&gt;나는 막히면 넘어가지 못하고 거기에 머무르는 성격인지라, 개발에 대한 성장은 거기서 멈추었다.&lt;/p&gt;
+
+&lt;p&gt;사실 마음을 좀 더 먹었으면 충분히 이해하고도 남는 시간이였다.&lt;/p&gt;
+
+&lt;p&gt;하지만 html, css만큼 나의 흥미를 이끌지 못했기 때문에, 또한 군대안에서 체력소모가 너무 심했기 때문이라는 핑계를 대겠다…&lt;/p&gt;
+
+&lt;p&gt;그렇지만 군대에서 시간을 낭비하지않고, 여러가지를 경험하고 배운 나에게 여전히 감사한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;2022&quot;&gt;2022&lt;/h4&gt;
+
+&lt;h5 id=&quot;전역-그리고-nodejs의-경험&quot;&gt;전역, 그리고 nodejs의 경험.&lt;/h5&gt;
+
+&lt;p&gt;웹 개발이 너무 좋았고, 빨리 node.js등 여러 프레임워크, 라이브러리를 다룰 생각에 설랜체로 전역했다.. 이런 마인드만 보면 거의 대단한 개발자가 될거 같다..(아직 모름)&lt;/p&gt;
+
+&lt;p&gt;전역 후 모은 돈으로 맥북, 모니터, 키보드, 마우스를 일시불로 질러버리고, 심지어 32만원짜리 유튜브 클론코딩 강의도 질러버렸다.&lt;/p&gt;
+
+&lt;p&gt;그때 express로 서버를 열때의 기분은 아직도 기억난다.&lt;/p&gt;
+
+&lt;p&gt;localhost:4000 정말 아름다웠다&lt;/p&gt;
+
+&lt;p&gt;그냥 흘러가는대로 공부했다면 이렇게 기쁘진 않았을 것이다.&lt;/p&gt;
+
+&lt;p&gt;1년 동안 터미널열리지 않는 사지방 컴퓨터로 아쉬움을 항상 가지고 있었기 때문에 이 순간이 너무 그리웠다.&lt;/p&gt;
+
+&lt;p&gt;github login api막힌체 개강을 했다.&lt;/p&gt;
+
+&lt;h5 id=&quot;2학년1학기&quot;&gt;2학년1학기&lt;/h5&gt;
+
+&lt;p&gt;개강과 동시에 웹 개발은 머리속에 사라졌다.&lt;/p&gt;
+
+&lt;p&gt;너무 배울게 많았고, 높은 학점을 맞고싶었기 때문에 학업에 매진했다.&lt;/p&gt;
+
+&lt;p&gt;음.. 매진했다기 보다는 공부할시간에 학업공부를 하고, 놀때는 놀았다!!&lt;/p&gt;
+
+&lt;p&gt;3.97이라는 학점을 받았다&lt;/p&gt;
+
+&lt;h4 id=&quot;2학년-여름방학-django를-접하다&quot;&gt;2학년 여름방학 django를 접하다&lt;/h4&gt;
+
+&lt;p&gt;2학년 여름 방학 우연히 django에 대해 알게 되었다.&lt;/p&gt;
+
+&lt;p&gt;node.js공부를 이어가야했지만, 4개월만에 보는 코드들은 전혀 읽히지가 않았다.&lt;/p&gt;
+
+&lt;p&gt;그러다 우연히 django라는 서버에대해 알게 되었다.&lt;/p&gt;
+
+&lt;p&gt;django는 python을 이용했지만, 너무 간단하게 사이트를 만들고 관리 할 수 있어서 신세계였다.&lt;/p&gt;
+
+&lt;p&gt;특히 관리자 페이지에서 가장 대단함을 느낀 것 같다.&lt;/p&gt;
+
+&lt;p&gt;공부하려고 jump to django도서와 수십만원대 강의를 또 사버렸다.(강의에는 돈 아아끼는 타입)&lt;/p&gt;
+
+&lt;p&gt;그리고 친구와 프로젝트도 하나 기획해보았다.&lt;/p&gt;
+
+&lt;p&gt;이름은 n slash one이라고 배달하려는 사람을 모아 배달비를 n빵하는 앱을 기획했다.(현재는 배민에 이 기능이 있음)&lt;/p&gt;
+
+&lt;p&gt;결과는 처참했다.&lt;/p&gt;
+
+&lt;p&gt;html, css, js, django를 이용해 사이트를 개발하려했지만, 나의 실력은 정말 꽝이였다.&lt;/p&gt;
+
+&lt;p&gt;거의 모든 부분에서 막혔고, 내가 만들고 싶은대로 만들지 못하는 내가 한심하게 느껴졋다.&lt;/p&gt;
+
+&lt;p&gt;어찌보면, 그동안의 공백기를 생각하면 당연한거지만, 죄절을 많이 했던것 같다.&lt;/p&gt;
+
+&lt;p&gt;그래서 처음부터 다시 공부하기로 마음을 먹었지만, 쉽지 않았다.&lt;/p&gt;
+
+&lt;p&gt;애매하게 알고있는 지식들은 곧 거만함이 되었고, 배움에 있어서 집중을 하지 않았다.&lt;/p&gt;
+
+&lt;p&gt;그렇게 또 django와 html, css, js를 애매하게 둔채 개강을 했다.&lt;/p&gt;
+
+&lt;h4 id=&quot;2학년-2학기&quot;&gt;2학년 2학기&lt;/h4&gt;
+
+&lt;p&gt;2학기 역시 학업에 충실히했다.&lt;/p&gt;
+
+&lt;p&gt;학점은 4.37을 맞았다.&lt;/p&gt;
+
+&lt;p&gt;오히려 반강제적인 공부에는 훨씬 집중하고, 밀도 있게 공부한듯 싶다.&lt;/p&gt;
+
+&lt;h4 id=&quot;겨울방학-똑같은-실수-반복&quot;&gt;겨울방학: 똑같은 실수 반복?&lt;/h4&gt;
+
+&lt;p&gt;웹 개발 - 학업 - 웹 개발 - 학업 레파토리는 개발 공부에 있어서는 쥐약이였다.&lt;/p&gt;
+
+&lt;p&gt;개발에 손을 대려자 머리속에 남아있는건 여러 잔해들 뿐이였고, 뭐든 “애매하게 개발할 수 있는 능력을 지닌 나” 밖에 남지 않았다.&lt;/p&gt;
+
+&lt;p&gt;이런 내가 싫었지만, 방황을 핑계로 함참을 개발에 손대지 않았다.&lt;/p&gt;
+
+&lt;h4 id=&quot;개강-3주전-친구와-스터디만들기-포부-tistory&quot;&gt;개강 3주전 친구와 스터디만들기, 포부, tistory&lt;/h4&gt;
+
+&lt;p&gt;마냥 방황하면서 얻은게 없는건 아니다.&lt;/p&gt;
+
+&lt;p&gt;방황하며 여러 정보를 알아보았고, 친구와 나도 성장하려는 욕구가 있었기 때문에 스터디를 만들고, 그에 맞게 계획도 세웠다.&lt;/p&gt;
+
+&lt;p&gt;그리고 tistory블로그를 꾸준히 작성하며, 배운지식을 저장하려고 노력했다.&lt;/p&gt;
+
+&lt;p&gt;방학 끝자락에 와서 이랬던게 아쉽기도 하지만, 별수있나 흐름을 잡았으니 됐다.&lt;/p&gt;</content><author><name>Abhinav Saxena</name></author><summary type="html">2020, 2021 in 육군</summary></entry><entry><title type="html">Soopr</title><link href="http://localhost:4000/soopr" rel="alternate" type="text/html" title="Soopr" /><published>2021-03-04T00:00:00+09:00</published><updated>2021-03-04T00:00:00+09:00</updated><id>http://localhost:4000/soopr</id><content type="html" xml:base="http://localhost:4000/soopr">&lt;p&gt;&lt;a href=&quot;https://www.soopr.co&quot;&gt;Soopr&lt;/a&gt; is the easiest way for you to add share &amp;amp; reaction buttons to your blog and website, integrate an URL shortener and simple to understand analytics service. Soopr lets you manage all of these using a powerful dashboard.&lt;/p&gt;
+
+&lt;p&gt;Moonwalk uses Soopr for share and like buttons and it is already integrated. By default, Moonwalk shows &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;circular&lt;/code&gt; Twitter, Facebook and Copy buttons in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base&lt;/code&gt; size. To add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;like&lt;/code&gt; button, please signup for free on &lt;a href=&quot;https://www.soopr.co&quot;&gt;Soopr&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you have signed up on Soopr, get a publish token for your website and edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file and add it under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;soopr&lt;/code&gt; key and restart the server.&lt;/p&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;soopr&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;publish-token&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ADD_YOUR_PUBLISH_TOKEN_HERE&quot;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://www.soopr.co&quot;&gt;Soopr Website&lt;/a&gt; for more info on how to get the most out of Soopr.&lt;/p&gt;</content><author><name>Abhinav Saxena</name></author><category term="soopr" /><category term="config" /><summary type="html">Soopr is the easiest way for you to add share &amp;amp; reaction buttons to your blog and website, integrate an URL shortener and simple to understand analytics service. Soopr lets you manage all of these using a powerful dashboard.</summary></entry><entry><title type="html">Post Example With Headings And Toc</title><link href="http://localhost:4000/post-example-with-headings-and-toc" rel="alternate" type="text/html" title="Post Example With Headings And Toc" /><published>2020-07-09T00:00:00+09:00</published><updated>2020-07-09T00:00:00+09:00</updated><id>http://localhost:4000/post-example-with-headings-and-toc</id><content type="html" xml:base="http://localhost:4000/post-example-with-headings-and-toc">&lt;p&gt;Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Nunc a egestas tortor, sed feugiat leo.&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;Table of contents&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-start&quot;&gt;The start&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-middle&quot;&gt;The middle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-end&quot;&gt;The end&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Nunc a egestas tortor, sed feugiat leo. Vestibulum porta tincidunt tellus, vitae ornare tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed nunc neque, tempor in iaculis non, faucibus et metus. Etiam id nisl ut lorem gravida euismod.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-start&quot;&gt;&lt;a href=&quot;#the-start&quot;&gt;The start&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Fusce non velit cursus ligula mattis convallis vel at metus. Sed pharetra tellus massa, non elementum eros vulputate non. Suspendisse potenti. Quisque arcu felis, laoreet vel accumsan sit amet, fermentum at nunc. Sed massa quam, auctor in eros quis, porttitor tincidunt orci. Nulla convallis id sapien ornare viverra. Cras nec est lacinia ligula porta tincidunt. Nam a est eget ligula pellentesque posuere. Maecenas quis enim ac risus accumsan scelerisque. Aliquam vitae libero sapien. Etiam convallis, metus nec suscipit condimentum, quam massa congue velit, sit amet sollicitudin nisi tortor a lectus. Cras a arcu enim. Suspendisse hendrerit euismod est ac gravida. Donec vitae elit tristique, suscipit eros at, aliquam augue. In ac faucibus dui. Sed tempor lacus tristique elit sagittis, vitae tempor massa convallis.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-middle&quot;&gt;&lt;a href=&quot;#the-middle&quot;&gt;The middle&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Proin quis velit et eros auctor laoreet. Aenean eget nibh odio. Suspendisse mollis enim pretium, fermentum urna vitae, egestas purus. Donec convallis tincidunt purus, scelerisque fermentum eros sagittis vel. Aliquam ac aliquet risus, tempus iaculis est. Fusce molestie mauris non interdum hendrerit. Curabitur ullamcorper, eros vitae interdum volutpat, lacus magna lacinia turpis, at accumsan dui tortor vel lectus. Aenean risus massa, semper non lectus rutrum, facilisis imperdiet mi. Praesent sed quam quis purus auctor ornare et sed augue. Vestibulum non quam quis ligula luctus placerat sed sit amet erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce auctor, sem eu volutpat dignissim, turpis nibh malesuada arcu, in consequat elit mauris quis sem. Nam tristique sit amet enim vel accumsan. Sed id nibh commodo, dictum sem id, semper quam.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-end&quot;&gt;The end&lt;/h2&gt;
+
+&lt;p&gt;Donec ex lectus, tempus non lacinia quis, pretium non ipsum. Praesent est nunc, rutrum vel tellus eu, tristique laoreet purus. In rutrum orci sit amet ex ornare, sit amet finibus lacus laoreet. Etiam ac facilisis purus, eget porttitor odio. Suspendisse tempus dolor nec risus sodales posuere. Proin dui dui, mollis a consectetur molestie, lobortis vitae tellus. Vivamus at purus sed urna sollicitudin mattis. Mauris lacinia libero in lobortis pulvinar. Nullam sit amet condimentum justo. Donec orci justo, pharetra ut dolor non, interdum finibus orci. Proin vitae ante a dui sodales commodo ac id elit. Nunc vel accumsan nunc, sit amet congue nunc. Aliquam in lacinia velit. Integer lobortis luctus eros, in fermentum metus aliquet a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.&lt;/p&gt;</content><author><name>Abhinav Saxena</name></author><summary type="html">Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Nunc a egestas tortor, sed feugiat leo.</summary></entry><entry><title type="html">Overview Post</title><link href="http://localhost:4000/overview-post" rel="alternate" type="text/html" title="Overview Post" /><published>2020-07-07T00:00:00+09:00</published><updated>2020-07-07T00:00:00+09:00</updated><id>http://localhost:4000/overview-post</id><content type="html" xml:base="http://localhost:4000/overview-post">&lt;p&gt;Lorem ipsum&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus.&lt;/p&gt;
+
+&lt;h1 id=&quot;sample-heading-1&quot;&gt;Sample heading 1&lt;/h1&gt;
+&lt;h2 id=&quot;sample-heading-2&quot;&gt;Sample heading 2&lt;/h2&gt;
+&lt;h3 id=&quot;sample-heading-3&quot;&gt;Sample heading 3&lt;/h3&gt;
+&lt;h4 id=&quot;sample-heading-4&quot;&gt;Sample heading 4&lt;/h4&gt;
+&lt;h5 id=&quot;sample-heading-5&quot;&gt;Sample heading 5&lt;/h5&gt;
+&lt;h6 id=&quot;sample-heading-6&quot;&gt;Sample heading 6&lt;/h6&gt;
+
+&lt;p&gt;Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Etiam id nisl ut lorem gravida euismod.&lt;/p&gt;
+
+&lt;h2 id=&quot;lists&quot;&gt;Lists&lt;/h2&gt;
+
+&lt;p&gt;Unordered:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fusce non velit cursus ligula mattis convallis vel at metus&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;Sed pharetra tellus massa, non elementum eros vulputate non.&lt;/li&gt;
+  &lt;li&gt;Suspendisse potenti.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ordered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Quisque arcu felis, laoreet vel accumsan sit amet, fermentum at nunc.&lt;/li&gt;
+  &lt;li&gt;Sed massa quam, auctor in eros quis, porttitor tincidunt orci.&lt;/li&gt;
+  &lt;li&gt;Nulla convallis id sapien ornare viverra.&lt;/li&gt;
+  &lt;li&gt;Nam a est eget ligula pellentesque posuere.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;blockquote&quot;&gt;Blockquote&lt;/h2&gt;
+
+&lt;p&gt;The following is a blockquote:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Suspendisse tempus dolor nec risus sodales posuere. Proin dui dui, mollis a consectetur molestie, lobortis vitae tellus.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;thematic-breaks-hr&quot;&gt;Thematic breaks (&amp;lt;hr&amp;gt;)&lt;/h2&gt;
+
+&lt;p&gt;Mauris viverra dictum ultricies&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Etiam id nisl ut lorem gravida euismod. &lt;strong&gt;You can put some text inside the horizontal rule like so.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr data-content=&quot;hr with text&quot; /&gt;
+
+&lt;p&gt;Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Etiam id nisl ut lorem gravida euismod. &lt;strong&gt;Or you can just have an clean horizontal rule.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Etiam id nisl ut lorem gravida euismod. Or you can just have an clean horizontal rule.&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
+
+&lt;p&gt;Now some code:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const ultimateTruth = 'follow middlepath';
+console.log(ultimateTruth);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And here is some &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inline code&lt;/code&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;tables&quot;&gt;Tables&lt;/h2&gt;
+
+&lt;p&gt;Now a table:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tables&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;right-aligned&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;images&quot;&gt;Images&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.abhinavsaxena.com/images/abhinav.jpeg&quot; alt=&quot;theme logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an image&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;hr data-content=&quot;footnotes&quot; /&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;this is a footnote. You should reach here if you click on the corresponding superscript number. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;hey there, don’t forget to read all the footnotes! &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;this is another footnote. &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;this is a very very long footnote to test if a very very long footnote brings some problems or not; hope that there are no problems but you know sometimes problems arise from nowhere. &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Abhinav Saxena</name></author><category term="overview" /><category term="moonwalk" /><summary type="html">Lorem ipsum1 dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus. this is a footnote. You should reach here if you click on the corresponding superscript number. &amp;#8617;</summary></entry></feed>
